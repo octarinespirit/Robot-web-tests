@@ -15,7 +15,8 @@ Check DNS records
     Log    ${RECORD}
 
 Check The Reverse Name Of IP Address
-    [Documentation]    Checks the reverse name of an ip address, the domain name.
+    [Documentation]    Checks the reverse name of an ip address, does it match the domain name.
+    ...                Sometimes reverse is not set.
 
     ${URL}     Get Value From User   Enter the website URL:
     ${RECORD}    Get Dns Record    ${URL}    A
