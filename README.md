@@ -10,6 +10,7 @@ webdriver - Chrome and Firefox webdrivers
 Currently implemented are UI tests for menu links, and also
 a special test case with user-keyword created with python to 
 scrape the texts of a blog entry and save them to a text file.
+First DNS tests have been added also.
 
 URL address is asked from the user when starting to run the tests,
 so it's not publicly hardcoded here to the files.
