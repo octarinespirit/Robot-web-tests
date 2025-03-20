@@ -18,3 +18,10 @@ Click Menu Link And Confirm Page Title
     [Arguments]    ${link}    ${page_title}
     Click Element    id=${link}
     Title Should Be    ${page_title}
+
+Open Browser To Admin Login
+    ${BASE_URL}    Get Value From User    Give the website address:
+    ${ADMIN_URL}    Set Variable    ${BASE_URL}/wp-admin
+    Open Browser    ${ADMIN_URL}    chrome
+    Maximize Browser Window
+    Sleep    2

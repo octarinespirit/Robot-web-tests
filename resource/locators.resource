@@ -15,3 +15,7 @@ ${FILIPPIINIT}    menu-item-471
 ${MUSIIKKI}    menu-item-473
 ${MINA}    menu-item-559
 ${LINKIT}    menu-item-611
+
+# ADMIN LOGIN PAGE
+${LOGIN_BUTTON}    wp-submit
+${ERROR_MSG}    error-page
