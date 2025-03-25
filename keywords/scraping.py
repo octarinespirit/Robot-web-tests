@@ -21,6 +21,6 @@ def get_content_and_save(url, filename):
     joined_text = f"{title_text}\n\n" + blog_text
 
     # Writing the content to a text file, returning the content also
-    with open(filename, 'w', encoding='utf-8') as file:
+    with open(filename, 'a', encoding='utf-8') as file:
         file.write(joined_text)
     return joined_text
