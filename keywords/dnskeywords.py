@@ -1,9 +1,7 @@
 """Module to check DNS records"""
 import dns.resolver
 import dns.reversename
-from robot.api.deco import keyword
 
-@keyword
 def get_dns_record(domain, record):
     """Fetches the DNS record for a given domain and record type from Google's nameserver"""
     resolver = dns.resolver.Resolver()
@@ -14,7 +12,6 @@ def get_dns_record(domain, record):
     except (dns.resolver.NoAnswer, dns.resolver.NXDOMAIN, dns.exception.Timeout) as e:
         return "Something went wrong, could not get the record. Error: ", str(e)
 
-@keyword
 def check_reverse_name(ip):
     """Check's the given ip address' reverse name, the domain name"""
     for address in ip:

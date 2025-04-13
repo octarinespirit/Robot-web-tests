@@ -1,8 +1,6 @@
 """Link checker module with python"""
 import requests
-from robot.api.deco import keyword
 
-@keyword
 def check_link(url):
     """Checks links through request, returns FAIL for broken or denied attempts"""
     try:

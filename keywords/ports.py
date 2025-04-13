@@ -1,7 +1,5 @@
 import socket
-from robot.api.deco import keyword
 
-@keyword
 def scan_port(host, port, timeout=2):
     """Checks if given port on given host is open"""
     try:
