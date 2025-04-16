@@ -13,6 +13,7 @@ ${PORT_END}    30
 *** Keywords ***
 Scanning Setup
     ${HOST}    Get Value From User    "Give host address to scan: "
+    Set Suite Variable    ${HOST}
 
 Scan Ports From List
     [Documentation]    Scans the given host's ports given in @{PORT_LIST}
