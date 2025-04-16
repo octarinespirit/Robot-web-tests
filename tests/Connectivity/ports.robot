@@ -1,6 +1,7 @@
 *** Settings ***
 Library    Dialogs
 Library    ../../keywords/ports.py
+Suite Setup    Scanning Setup
 
 
 *** Variables ***
@@ -10,9 +11,12 @@ ${PORT_END}    30
 
 
 *** Keywords ***
+Scanning Setup
+    ${HOST}    Get Value From User    "Give host address to scan: "
+
 Scan Ports From List
     [Documentation]    Scans the given host's ports given in @{PORT_LIST}
-    ${HOST}    Get Value From User    "Give host address to scan: "
+    
     FOR    ${port}    IN    @{PORT_LIST}
         ${result}    Scan Port    ${HOST}    ${port}
         Log To Console    Port ${port} is ${result}
@@ -21,7 +25,7 @@ Scan Ports From List
 Scan Port Range
     [Documentation]    Scans the given host's port range defined by ${PORT_START} and ${PORT_END}
     [Arguments]    ${starting_port}    ${ending_port}
-    ${HOST}    Get Value From User    "Give host address to scan: "
+
     FOR    ${port}    IN RANGE    ${starting_port}    ${ending_port}
         Log To Console    Scanning port ${port}
         ${result}    Scan Port    ${HOST}    ${port}

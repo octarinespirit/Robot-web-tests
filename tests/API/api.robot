@@ -2,7 +2,6 @@
 Library    Dialogs
 Library    RequestsLibrary
 
-
 *** Test Cases ***
 Verify API is Reachable
     [Documentation]    Check the Wordpress REST API is available
