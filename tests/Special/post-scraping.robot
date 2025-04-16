@@ -4,9 +4,20 @@ Library    Dialogs
 Library    SeleniumLibrary
 Library    ../../keywords/scraping.py
 Resource    ../../keywords/keywords.resource
+Suite Setup    Scraping Setup
+Suite Teardown    Scraping Teardown
+
 
 
 *** Keywords ***
+Scraping Setup
+    ${BASEURL}     Get Value From User   Enter the website URL:
+    VAR    ${URL}
+    Set Suite Variable    ${URL}    ${BASEURL}/posts
+
+Scraping Teardown
+    Close All Browsers
+
 Get All Post Links
     [Documentation]    Gets all the post links from given page.
     VAR    @{links}
@@ -29,16 +40,12 @@ Count Number Of Posts
 Scrape Post
     [Documentation]    Scraping the contents of a blog post and writing them to a text file.
     [Tags]    scrape-1
-
-    ${URL}     Get Value From User   Enter the website URL:
     ${blog}    Get Content And Save    ${URL}    blog.txt
     Log    ${blog}
 
 Post Counter
     [Documentation]    Counts the number of the posts
     [Tags]    count-posts
-
-    ${URL}     Get Value From User   Enter the website URL:
     Open Browser    ${URL}    chrome
     ${post_links}    Get All Post Links
     Log    Found ${post_links.__len__()} posts
@@ -46,7 +53,6 @@ Post Counter
 Scrape All Posts
     [Documentation]    Scrapes the text of all the blog posts and saves them to a text file.
     [Tags]    scrape-2
-    ${URL}     Get Value From User   Enter the website URL:
     Open Browser    ${URL}    chrome
     ${post_links}    Get All Post Links
     FOR    ${link}    IN    @{post_links}

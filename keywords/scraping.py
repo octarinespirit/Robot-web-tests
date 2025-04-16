@@ -1,9 +1,7 @@
 """Module to fetch content by requests"""
 import requests
 from bs4 import BeautifulSoup
-from robot.api.deco import keyword
 
-@keyword
 def get_content_and_save(url, filename):
     """ Parse the contents of a blog page and save the texts to a file"""
     page = requests.get(url, timeout=500)
