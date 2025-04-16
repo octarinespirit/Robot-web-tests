@@ -26,7 +26,7 @@ Log Failed Links
 Check All Links On Page
     [Documentation]    Checks that links are working on a given web page, failed and denied checks are logged to a list
     ${URL}    Get Value From User    Give website address:
-    Open Browser    ${URL}    Chrome
+    Open Browser    ${URL}/linkit    Chrome
     ${links}    Get WebElements    //a[@href]
 
     FOR    ${link}    IN    @{links}
