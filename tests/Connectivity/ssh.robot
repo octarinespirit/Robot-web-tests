@@ -12,7 +12,7 @@ ${PASSWORD}    test123
 
 *** Test Cases ***
 Try Opening SSH Connection
-    [Documentation]    Asks user the hostname and tries to log in with the given variable credentials.
+    [Documentation]    Tries to log in with the given (wrong) credentials.
     ${HOST}    Get Value From User    "Give hostname for SSH connection: "
     Open Connection    ${HOST}
     ${output}    Run Keyword And Ignore Error    Login    ${USERNAME}    ${PASSWORD}
