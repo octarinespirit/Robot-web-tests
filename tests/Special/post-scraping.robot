@@ -5,18 +5,15 @@ Library    SeleniumLibrary
 Library    ../../keywords/scraping.py
 Resource    ../../keywords/keywords.resource
 Suite Setup    Scraping Setup
-Suite Teardown    Scraping Teardown
-
+Task Teardown    Close All Browsers
 
 
 *** Keywords ***
 Scraping Setup
+    [Documentation]    Asking the user the url and setting the base url address.
     ${BASEURL}     Get Value From User   Enter the website URL:
     VAR    ${URL}
     Set Suite Variable    ${URL}    ${BASEURL}/posts
-
-Scraping Teardown
-    Close All Browsers
 
 Get All Post Links
     [Documentation]    Gets all the post links from given page.
